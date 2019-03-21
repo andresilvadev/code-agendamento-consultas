@@ -59,8 +59,6 @@ class CompromissoController extends Controller
             $compromisso->start = $request->start;
             $compromisso->end = $request->end;
 
-            // dd($compromisso);
-
             try {
                 $compromisso->save();
 
@@ -69,31 +67,16 @@ class CompromissoController extends Controller
                     'mensagem' => 'Compromisso salve com sucesso!',
                     'compromisso' => $compromisso
                 ];
-
                 return response()->json($response, 201);
             }
             catch (\Exception $e) {
-
                 $response = [
                     'status' => 'fail',
                     'mensagem' => 'Ocorreu um erro ao gravar compromisso!',
                     'exception' => $e->getMessage()
-                ];
-    
+                ];    
                 return response()->json($response, 400);
-
-            }
-            
-
-                    
-           
-
-            // return response()->json($response, 201);
-        
-
-
-        
-
+            }            
     }
 
     /**
